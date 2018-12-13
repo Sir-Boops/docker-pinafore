@@ -37,5 +37,7 @@ RUN apk del --purge deps && \
 
 # Final container settings
 ENV PORT="4002"
+
+EXPOSE 4002
 WORKDIR /opt/pinafore
 CMD npm start
