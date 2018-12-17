@@ -20,7 +20,7 @@ RUN apk update && \
 ENV PATH="${PATH}:/opt/node/bin"
 
 # Build Pinafore
-ENV PINA_HASH="fd1310c2c138678bea4c0c54ea6b03042b0ee414"
+ENV PINA_HASH="049bbba63920bb99d5a1be52d192266785663616"
 RUN apk --virtual deps add \
 		git && \
 	cd /opt && \
