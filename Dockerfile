@@ -1,7 +1,7 @@
 FROM alpine:3.8
 
 # Build NodeJS
-ENV NODE_VER="8.14.1"
+ENV NODE_VER="8.15.0"
 RUN apk update && \
 	apk upgrade && \
 	apk --virtual deps add \
