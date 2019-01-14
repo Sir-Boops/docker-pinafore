@@ -1,26 +1,18 @@
+FROM sirboops/nodejs:8.15.0-alpine as node
 FROM alpine:3.8
 
-# Build NodeJS
-ENV NODE_VER="8.15.0"
-RUN apk update && \
-	apk upgrade && \
-	apk --virtual deps add \
-		build-base python linux-headers && \
-	apk add libgcc libstdc++ && \
-	cd ~ && \
-	wget https://nodejs.org/dist/v$NODE_VER/node-v$NODE_VER.tar.xz && \
-	tar xf node-v$NODE_VER.tar.xz && \
-	cd node-v$NODE_VER && \
-	./configure --prefix=/opt/node && \
-	make -j$(nproc) > /dev/null && \
-	make install && \
-	rm -rf ~/*
+# Update the container
+RUN apk upgrade
+
+# Install NodeJS
+COPY --from=node /opt/node /opt/node
+RUN apk add libstdc++
 
 # Set the net path with node
 ENV PATH="${PATH}:/opt/node/bin"
 
 # Build Pinafore
-ENV PINA_HASH="59f9be448d4fa602a1c38ebb208634f6e5e8380a"
+ENV PINA_HASH="a508f494f0c84beda9c60b81397cc3975fab472d"
 RUN apk --virtual deps add \
 		git && \
 	cd /opt && \
