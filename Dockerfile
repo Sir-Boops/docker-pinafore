@@ -12,7 +12,7 @@ RUN apk add libstdc++
 ENV PATH="${PATH}:/opt/node/bin"
 
 # Build Pinafore
-ENV PINA_HASH="58b0c56ad88129e7de69d8efda6820f9da1d6ab0"
+ENV PINA_HASH="a508f494f0c84beda9c60b81397cc3975fab472d"
 RUN apk --virtual deps add \
 		git && \
 	cd /opt && \
