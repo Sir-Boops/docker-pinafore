@@ -20,7 +20,7 @@ RUN apk --virtual deps add \
 	cd /opt && \
 	git clone https://github.com/nolanlawson/pinafore && \
 	cd pinafore && \
-	git checkout tags/$PINA_VER && \
+	git checkout tags/v$PINA_VER && \
 	npm install && \
 	npm run build && \
 	rm -rf .git
