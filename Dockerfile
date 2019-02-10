@@ -1,6 +1,9 @@
 FROM sirboops/nodejs:8.15.0-alpine as node
 FROM alpine:3.8
 
+# Set Versions
+PINA_VER="1.0.0"
+
 # Update the container
 RUN apk upgrade
 
@@ -12,13 +15,12 @@ RUN apk add libstdc++
 ENV PATH="${PATH}:/opt/node/bin"
 
 # Build Pinafore
-ENV PINA_HASH="58b0c56ad88129e7de69d8efda6820f9da1d6ab0"
 RUN apk --virtual deps add \
 		git && \
 	cd /opt && \
 	git clone https://github.com/nolanlawson/pinafore && \
 	cd pinafore && \
-	git checkout $PINA_HASH && \
+	git checkout tags/$PINA_VER && \
 	npm install && \
 	npm run build && \
 	rm -rf .git
