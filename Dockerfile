@@ -1,8 +1,8 @@
-FROM sirboops/nodejs:8.15.1-alpine as node
+FROM sirboops/nodejs:8.16.0-alpine as node
 FROM alpine:3.9
 
 # Set Versions
-ENV PINA_VER="1.6.1"
+ENV PINA_VER="1.7.0"
 
 # Update the container
 RUN apk upgrade
